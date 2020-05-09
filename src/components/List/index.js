@@ -1,10 +1,14 @@
 import React from 'react';
 
-const List = () => {
+import Todo from '../Todo'
+
+const List = ({todos, toggleTodo, removeTodo}) => {
     return (
-        <p>
-            list
-        </p>
+        <ul>
+            {todos.map(todo =>
+                <Todo key={todo.id} {...todo} onClick={() => toggleTodo(todo.id)} removeTodo={removeTodo} />
+            )}
+        </ul>
     );
 };
 

@@ -1,10 +1,8 @@
 import React from 'react';
 
-const Footer = () => {
+const Footer = ({ length }) => {
     return (
-        <p>
-            footer
-        </p>
+        <small> TOTAL: {length} </small>
     );
 };
 
