@@ -2,11 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Footer = ({ length }) => (
-  <small>
-    TOTAL:
-    {' '}
-    {length}
-  </small>
+  <footer className="text-center">
+    { !!length && <small>{`TOTAL: ${length}`}</small> }
+  </footer>
 );
 
 Footer.propTypes = {

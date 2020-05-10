@@ -1,23 +1,78 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import Todo from '../Todo';
+import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 const List = ({ todos, toggleTodo, removeTodo }) => (
-  <ul>
-    {todos.map((todo) => {
-      const { id } = todo;
-      return (
-        <Todo
-          key={id}
-          id={id}
-          todo={todo}
-          onClick={() => toggleTodo(id)}
-          removeTodo={removeTodo}
-        />
-      );
-    })}
-  </ul>
+  <Table hover className="bg-white">
+    <tbody>
+      {todos.length
+        ? todos.map((todo) => {
+          const { id, text, completed } = todo;
+          return (
+            <tr>
+              <td className="align-middle">
+                <Form.Check custom type="checkbox" id={`todo-${id}`}>
+                  <Form.Check.Input type="checkbox" isValid />
+                  {completed
+                    ? (
+                      <>
+                        <Form.Check.Label
+                          className="text-success"
+                          onClick={() => toggleTodo(id)}
+                          tabIndex="0"
+                          role="button"
+                        >
+                          {text}
+                        </Form.Check.Label>
+                        <Form.Control.Feedback className="text-success">
+                          <small>
+                            &#10003;
+                            {' '}
+                            Completed
+                          </small>
+                        </Form.Control.Feedback>
+                      </>
+                    )
+                    : (
+                      <>
+                        <Form.Check.Label
+                          className="text-dark"
+                          onClick={() => toggleTodo(id)}
+                          tabIndex="0"
+                          role="button"
+                        >
+                          {text}
+                        </Form.Check.Label>
+                        <Form.Control.Feedback className="text-warning">
+                          <small>
+                            &#33;
+                            {' '}
+                            Pending
+                          </small>
+                        </Form.Control.Feedback>
+                      </>
+                    )}
+                </Form.Check>
+              </td>
+              <td className="text-right">
+                <Button variant="danger" size="sm" type="button" onClick={() => removeTodo(id)}>
+                  <small>REMOVE</small>
+                </Button>
+              </td>
+            </tr>
+          );
+        })
+        : (
+          <div className="bg-light text-center">
+            <small>
+              No records found
+            </small>
+          </div>
+        )}
+    </tbody>
+  </Table>
 );
 
 List.propTypes = {

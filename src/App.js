@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import Container from 'react-bootstrap/Container';
 
-import './App.css';
 import Header from './components/Header';
 import List from './components/List';
 import Footer from './components/Footer';
@@ -43,11 +43,11 @@ export default class ComponentName extends Component {
   render() {
     const { todos } = this.state;
     return (
-      <div className="App">
+      <Container className="p-3">
         <Header addTodo={this.addTodo} />
         <List todos={todos} toggleTodo={this.toggleTodo} removeTodo={this.removeTodo} />
         <Footer length={todos.length} />
-      </div>
+      </Container>
     );
   }
 }
