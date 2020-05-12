@@ -11,7 +11,7 @@ const List = ({ todos, toggleTodo, removeTodo }) => (
         ? todos.map((todo) => {
           const { id, text, completed } = todo;
           return (
-            <tr>
+            <tr key={id}>
               <td className="align-middle">
                 <Form.Check custom type="checkbox" id={`todo-${id}`}>
                   <Form.Check.Input type="checkbox" isValid />

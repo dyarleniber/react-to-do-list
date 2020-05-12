@@ -44,10 +44,11 @@ class Header extends Component {
             </span>
           </Col>
         </Row>
-        <Form onSubmit={this.handleSubmit}>
+        <Form id="addForm" onSubmit={this.handleSubmit}>
           <Form.Row className="mb-3">
             <Form.Group as={Col} md={{ span: 6, offset: 3 }} controlId="formNewTodo">
               <Form.Control
+                id="textInput"
                 type="text"
                 placeholder="What needs to be done?"
                 value={input}
@@ -57,7 +58,13 @@ class Header extends Component {
               />
             </Form.Group>
             <Col md={{ span: 6, offset: 3 }}>
-              <Button className="float-right" variant="primary" size="sm" type="submit">
+              <Button
+                id="addButton"
+                className="float-right"
+                variant="primary"
+                size="sm"
+                type="submit"
+              >
                 <small>
                   &#43;
                   {' '}
