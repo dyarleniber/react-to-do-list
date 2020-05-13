@@ -35,34 +35,47 @@ it('adds todos', () => {
 });
 
 it('toggles todos', () => {
-  const id = 2;
-  const text = 'Todo 2 example';
-
-  const spy = jest.spyOn(global.Math, 'random').mockReturnValue(id);
+  const id2 = 2;
+  const text2 = 'Todo 2 example';
+  const id3 = 3;
+  const text3 = 'Todo 3 example';
 
   expect((wrapper.state())).toEqual({ todos: [] });
 
-  wrapper.instance().addTodo(text);
+  const spy2 = jest.spyOn(global.Math, 'random').mockReturnValue(id2);
+  wrapper.instance().addTodo(text2);
+
+  const spy3 = jest.spyOn(global.Math, 'random').mockReturnValue(id3);
+  wrapper.instance().addTodo(text3);
 
   expect((wrapper.state())).toEqual({
     todos: [{
-      id,
+      id: id2,
       completed: false,
-      text,
+      text: text2,
+    }, {
+      id: id3,
+      completed: false,
+      text: text3,
     }],
   });
 
-  wrapper.instance().toggleTodo(id);
+  wrapper.instance().toggleTodo(id2);
 
   expect((wrapper.state())).toEqual({
     todos: [{
-      id,
+      id: id2,
       completed: true,
-      text,
+      text: text2,
+    }, {
+      id: id3,
+      completed: false,
+      text: text3,
     }],
   });
 
-  spy.mockRestore();
+  spy2.mockRestore();
+  spy3.mockRestore();
 });
 
 it('removes todos', () => {

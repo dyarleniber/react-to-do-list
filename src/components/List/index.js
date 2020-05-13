@@ -11,15 +11,15 @@ const List = ({ todos, toggleTodo, removeTodo }) => (
         ? todos.map((todo) => {
           const { id, text, completed } = todo;
           return (
-            <tr key={id}>
+            <tr key={`rowTodo${id}`} id={`rowTodo${id}`}>
               <td className="align-middle">
-                <Form.Check custom type="checkbox" id={`todo-${id}`}>
+                <Form.Check custom type="checkbox" id={`todo${id}`}>
                   <Form.Check.Input type="checkbox" isValid />
                   {completed
                     ? (
                       <>
                         <Form.Check.Label
-                          className="text-success"
+                          className="labelTodo text-success"
                           onClick={() => toggleTodo(id)}
                           tabIndex="0"
                           role="button"
@@ -38,7 +38,7 @@ const List = ({ todos, toggleTodo, removeTodo }) => (
                     : (
                       <>
                         <Form.Check.Label
-                          className="text-dark"
+                          className="labelTodo text-dark"
                           onClick={() => toggleTodo(id)}
                           tabIndex="0"
                           role="button"
@@ -57,7 +57,13 @@ const List = ({ todos, toggleTodo, removeTodo }) => (
                 </Form.Check>
               </td>
               <td className="text-right">
-                <Button variant="danger" size="sm" type="button" onClick={() => removeTodo(id)}>
+                <Button
+                  className="removeTodoButton"
+                  variant="danger"
+                  size="sm"
+                  type="button"
+                  onClick={() => removeTodo(id)}
+                >
                   <small>REMOVE</small>
                 </Button>
               </td>

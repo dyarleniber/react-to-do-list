@@ -47,3 +47,15 @@ it('removes white spaces when adding a new todo', () => {
   expect(mockAddTodo).toHaveBeenCalledWith(trimmedInput);
   expect((wrapper.state())).toEqual({ input: '' });
 });
+
+it('does not add white spaces as todos', () => {
+  const input = '   ';
+  wrapper.find('[id="textInput"]').simulate('change', { target: { value: input } });
+  expect((wrapper.state())).toEqual({ input });
+  wrapper.find('[id="addForm"]').simulate('submit', {
+    preventDefault: jest.fn(),
+    target: { value: input },
+  });
+  expect(mockAddTodo).toHaveBeenCalledTimes(0);
+  expect((wrapper.state())).toEqual({ input: '' });
+});
