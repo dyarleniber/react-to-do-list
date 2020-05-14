@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
+import * as TodoActions from '../../store/actions/todos';
+
 import logo from '../../icon.png';
 
-class Header extends Component {
+export class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -83,4 +87,6 @@ Header.propTypes = {
   addTodo: PropTypes.func.isRequired,
 };
 
-export default Header;
+const mapDispatchToProps = (dispatch) => bindActionCreators(TodoActions, dispatch);
+
+export default connect(null, mapDispatchToProps)(Header);

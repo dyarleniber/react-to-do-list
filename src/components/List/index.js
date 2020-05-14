@@ -1,10 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-const List = ({ todos, toggleTodo, removeTodo }) => (
+import * as TodoActions from '../../store/actions/todos';
+
+export const List = ({ todos, toggleTodo, removeTodo }) => (
   <Table hover className="bg-white">
     <tbody>
       {todos.length
@@ -91,4 +95,10 @@ List.propTypes = {
   removeTodo: PropTypes.func.isRequired,
 };
 
-export default List;
+const mapStateToProps = (state) => ({
+  todos: state.todos,
+});
+
+const mapDispatchToProps = (dispatch) => bindActionCreators(TodoActions, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(List);

@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-const Footer = ({ length }) => (
+export const Footer = ({ length }) => (
   <footer className="text-center">
     { !!length && <small>{`TOTAL: ${length}`}</small> }
   </footer>
@@ -11,4 +12,8 @@ Footer.propTypes = {
   length: PropTypes.number.isRequired,
 };
 
-export default Footer;
+const mapStateToProps = (state) => ({
+  length: state.todos.length,
+});
+
+export default connect(mapStateToProps)(Footer);
