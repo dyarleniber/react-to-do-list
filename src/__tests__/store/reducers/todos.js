@@ -14,7 +14,7 @@ describe('todos reducer', () => {
           {
             id: 1,
             text: 'todo',
-            complete: false,
+            completed: false,
           },
         ],
         {
@@ -26,12 +26,12 @@ describe('todos reducer', () => {
       {
         id: 1,
         text: 'todo',
-        complete: false,
+        completed: false,
       },
       {
         id: 2,
         text: 'todo2',
-        complete: false,
+        completed: false,
       },
     ]);
     spy.mockRestore();
@@ -44,12 +44,12 @@ describe('todos reducer', () => {
           {
             id: 1,
             text: 'todo',
-            complete: false,
+            completed: false,
           },
           {
             id: 2,
             text: 'todo2',
-            complete: false,
+            completed: false,
           },
         ],
         {
@@ -61,12 +61,12 @@ describe('todos reducer', () => {
       {
         id: 1,
         text: 'todo',
-        complete: false,
+        completed: false,
       },
       {
         id: 2,
         text: 'todo2',
-        complete: true,
+        completed: true,
       },
     ]);
   });
@@ -78,12 +78,12 @@ describe('todos reducer', () => {
           {
             id: 1,
             text: 'todo',
-            complete: false,
+            completed: false,
           },
           {
             id: 2,
             text: 'todo2',
-            complete: true,
+            completed: true,
           },
         ],
         {
@@ -95,7 +95,7 @@ describe('todos reducer', () => {
       {
         id: 2,
         text: 'todo2',
-        complete: true,
+        completed: true,
       },
     ]);
   });

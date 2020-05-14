@@ -8,12 +8,12 @@ export default function todos(state = INITIAL_STATE, action) {
       return [...state, {
         id: Math.random(),
         text: action.payload.text,
-        complete: false,
+        completed: false,
       }];
     case types.TOGGLE_TODO:
       return state.map((todo) => (
         todo.id === action.payload.id
-          ? { ...todo, complete: !todo.complete }
+          ? { ...todo, completed: !todo.completed }
           : todo
       ));
     case types.REMOVE_TODO:
