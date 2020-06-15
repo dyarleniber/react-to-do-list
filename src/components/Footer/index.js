@@ -1,19 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-export const Footer = ({ length }) => (
-  <footer className="text-center">
-    { !!length && <small>{`TOTAL: ${length}`}</small> }
-  </footer>
-);
+const Footer = () => {
+  const length = useSelector((state) => state.todos.length);
 
-Footer.propTypes = {
-  length: PropTypes.number.isRequired,
+  return (
+    <footer className="text-center">
+      { !!length && <small>{`TOTAL: ${length}`}</small> }
+    </footer>
+  );
 };
 
-const mapStateToProps = (state) => ({
-  length: state.todos.length,
-});
 
-export default connect(mapStateToProps)(Footer);
+export default Footer;
