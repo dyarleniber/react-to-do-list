@@ -1,5 +1,231 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders without crashing 1`] = `ShallowWrapper {}`;
+exports[`List component should render without crashing 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <List>
+    <div
+      className="bg-light text-center"
+    >
+      <small>
+        No records found
+      </small>
+    </div>
+  </List>
+</Provider>
+`;
 
-exports[`renders without crashing 2`] = `ShallowWrapper {}`;
+exports[`List component should render without crashing 2`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <List>
+    <ForwardRef
+      className="bg-white"
+      hover={true}
+    >
+      <table
+        className="bg-white table table-hover"
+      >
+        <tbody>
+          <tr
+            id="rowTodo1"
+            key="rowTodo1"
+          >
+            <td
+              className="align-middle"
+            >
+              <FormCheck
+                custom={true}
+                disabled={false}
+                id="todo1"
+                inline={false}
+                isInvalid={false}
+                isValid={false}
+                title=""
+                type="checkbox"
+              >
+                <div
+                  className="custom-control custom-checkbox"
+                >
+                  <FormCheckInput
+                    isValid={true}
+                    type="checkbox"
+                  >
+                    <input
+                      className="custom-control-input is-valid"
+                      id="todo1"
+                      type="checkbox"
+                    />
+                  </FormCheckInput>
+                  <FormCheckLabel
+                    className="labelTodo text-success"
+                    onClick={[Function]}
+                    role="button"
+                    tabIndex="0"
+                  >
+                    <label
+                      className="labelTodo text-success custom-control-label"
+                      htmlFor="todo1"
+                      onClick={[Function]}
+                      role="button"
+                      tabIndex="0"
+                    >
+                      Todo 1
+                    </label>
+                  </FormCheckLabel>
+                  <Feedback
+                    className="text-success"
+                    type="valid"
+                  >
+                    <div
+                      className="text-success valid-feedback"
+                    >
+                      <small>
+                        ✓
+                         
+                        Completed
+                      </small>
+                    </div>
+                  </Feedback>
+                </div>
+              </FormCheck>
+            </td>
+            <td
+              className="text-right"
+            >
+              <Button
+                active={false}
+                className="removeTodoButton"
+                disabled={false}
+                onClick={[Function]}
+                size="sm"
+                type="button"
+                variant="danger"
+              >
+                <button
+                  className="removeTodoButton btn btn-danger btn-sm"
+                  disabled={false}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <small>
+                    REMOVE
+                  </small>
+                </button>
+              </Button>
+            </td>
+          </tr>
+          <tr
+            id="rowTodo2"
+            key="rowTodo2"
+          >
+            <td
+              className="align-middle"
+            >
+              <FormCheck
+                custom={true}
+                disabled={false}
+                id="todo2"
+                inline={false}
+                isInvalid={false}
+                isValid={false}
+                title=""
+                type="checkbox"
+              >
+                <div
+                  className="custom-control custom-checkbox"
+                >
+                  <FormCheckInput
+                    isValid={true}
+                    type="checkbox"
+                  >
+                    <input
+                      className="custom-control-input is-valid"
+                      id="todo2"
+                      type="checkbox"
+                    />
+                  </FormCheckInput>
+                  <FormCheckLabel
+                    className="labelTodo text-dark"
+                    onClick={[Function]}
+                    role="button"
+                    tabIndex="0"
+                  >
+                    <label
+                      className="labelTodo text-dark custom-control-label"
+                      htmlFor="todo2"
+                      onClick={[Function]}
+                      role="button"
+                      tabIndex="0"
+                    >
+                      Todo 2
+                    </label>
+                  </FormCheckLabel>
+                  <Feedback
+                    className="text-warning"
+                    type="valid"
+                  >
+                    <div
+                      className="text-warning valid-feedback"
+                    >
+                      <small>
+                        !
+                         
+                        Pending
+                      </small>
+                    </div>
+                  </Feedback>
+                </div>
+              </FormCheck>
+            </td>
+            <td
+              className="text-right"
+            >
+              <Button
+                active={false}
+                className="removeTodoButton"
+                disabled={false}
+                onClick={[Function]}
+                size="sm"
+                type="button"
+                variant="danger"
+              >
+                <button
+                  className="removeTodoButton btn btn-danger btn-sm"
+                  disabled={false}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <small>
+                    REMOVE
+                  </small>
+                </button>
+              </Button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ForwardRef>
+  </List>
+</Provider>
+`;

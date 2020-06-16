@@ -1,5 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders without crashing 1`] = `ShallowWrapper {}`;
+exports[`Footer component should render without crashing 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Footer>
+    <footer
+      className="text-center"
+    />
+  </Footer>
+</Provider>
+`;
 
-exports[`renders without crashing 2`] = `ShallowWrapper {}`;
+exports[`Footer component should render without crashing 2`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Footer>
+    <footer
+      className="text-center"
+    >
+      <small>
+        TOTAL: 2
+      </small>
+    </footer>
+  </Footer>
+</Provider>
+`;

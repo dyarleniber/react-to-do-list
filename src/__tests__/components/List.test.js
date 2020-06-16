@@ -1,84 +1,99 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
+import configureStore from 'redux-mock-store';
+import { Provider } from 'react-redux';
 
-import { List } from '../../components/List';
+import List from '../../components/List';
+import { toggleTodo, removeTodo } from '../../store/actions/todos';
 
-it('renders without crashing', () => {
-  let wrapper;
-  let mockTodos;
-  const mockToggleTodo = jest.fn();
-  const mockRemoveTodo = jest.fn();
+const middlewares = [];
+const mockStore = configureStore(middlewares);
 
-  mockTodos = [];
-  wrapper = shallow(
-    <List
-      todos={mockTodos}
-      toggleTodo={mockToggleTodo}
-      removeTodo={mockRemoveTodo}
-    />,
-  );
-  expect(wrapper).toMatchSnapshot();
+describe('List component', () => {
+  it('should render without crashing', () => {
+    let wrapper;
+    let initialState;
+    let store;
 
-  mockTodos = [
-    {
-      id: 1,
-      text: 'Todo 1',
-      completed: true,
-    },
-    {
-      id: 2,
-      text: 'Todo 2',
-      completed: false,
-    },
-  ];
-  wrapper = shallow(
-    <List
-      todos={mockTodos}
-      toggleTodo={mockToggleTodo}
-      removeTodo={mockRemoveTodo}
-    />,
-  );
-  expect(wrapper).toMatchSnapshot();
-});
+    initialState = { todos: [] };
+    store = mockStore(initialState);
+    wrapper = mount(
+      <Provider store={store}>
+        <List />
+      </Provider>,
+    );
+    expect(wrapper).toMatchSnapshot();
 
-it('toggles and removes todos', () => {
-  const mockTodos = [
-    {
-      id: 1,
-      text: 'Todo 1',
-      completed: true,
-    },
-    {
-      id: 2,
-      text: 'Todo 2',
-      completed: false,
-    },
-  ];
-  const mockToggleTodo = jest.fn();
-  const mockRemoveTodo = jest.fn();
-  const wrapper = shallow(
-    <List
-      todos={mockTodos}
-      toggleTodo={mockToggleTodo}
-      removeTodo={mockRemoveTodo}
-    />,
-  );
+    initialState = {
+      todos: [
+        {
+          id: 1,
+          text: 'Todo 1',
+          completed: true,
+        },
+        {
+          id: 2,
+          text: 'Todo 2',
+          completed: false,
+        },
+      ],
+    };
+    store = mockStore(initialState);
+    wrapper = mount(
+      <Provider store={store}>
+        <List />
+      </Provider>,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
 
-  wrapper.find('[id="rowTodo1"] .labelTodo').simulate('click');
-  expect(mockToggleTodo).toHaveBeenCalledTimes(1);
-  expect(mockToggleTodo).toHaveBeenCalledWith(1);
-  mockToggleTodo.mockReset();
-  wrapper.find('[id="rowTodo2"] .labelTodo').simulate('click');
-  expect(mockToggleTodo).toHaveBeenCalledTimes(1);
-  expect(mockToggleTodo).toHaveBeenCalledWith(2);
-  mockToggleTodo.mockReset();
+  it('should toggle and remove todos', () => {
+    const initialState = {
+      todos: [
+        {
+          id: 1,
+          text: 'Todo 1',
+          completed: true,
+        },
+        {
+          id: 2,
+          text: 'Todo 2',
+          completed: false,
+        },
+      ],
+    };
+    const store = mockStore(initialState);
+    const wrapper = mount(
+      <Provider store={store}>
+        <List />
+      </Provider>,
+    );
 
-  wrapper.find('[id="rowTodo1"] .removeTodoButton').simulate('click');
-  expect(mockRemoveTodo).toHaveBeenCalledTimes(1);
-  expect(mockRemoveTodo).toHaveBeenCalledWith(1);
-  mockRemoveTodo.mockReset();
-  wrapper.find('[id="rowTodo2"] .removeTodoButton').simulate('click');
-  expect(mockRemoveTodo).toHaveBeenCalledTimes(1);
-  expect(mockRemoveTodo).toHaveBeenCalledWith(2);
-  mockRemoveTodo.mockReset();
+    let actions;
+    let expectedPayload;
+
+    wrapper.find('[id="rowTodo1"] .labelTodo').first().simulate('click');
+    actions = store.getActions();
+    expectedPayload = toggleTodo(1);
+    expect(actions).toEqual([expectedPayload]);
+    store.clearActions();
+
+    wrapper.find('[id="rowTodo2"] .labelTodo').first().simulate('click');
+    actions = store.getActions();
+    expectedPayload = toggleTodo(2);
+    expect(actions).toEqual([expectedPayload]);
+    store.clearActions();
+
+    wrapper.find('[id="rowTodo1"] .removeTodoButton').first().simulate('click');
+    actions = store.getActions();
+    expectedPayload = removeTodo(1);
+    expect(actions).toEqual([expectedPayload]);
+    store.clearActions();
+
+    wrapper.find('[id="rowTodo2"] .removeTodoButton').first().simulate('click');
+    actions = store.getActions();
+    expectedPayload = removeTodo(2);
+    expect(actions).toEqual([expectedPayload]);
+    store.clearActions();
+  });
 });

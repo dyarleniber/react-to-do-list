@@ -1,3 +1,158 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders without crashing 1`] = `ShallowWrapper {}`;
+exports[`Header component should render without crashing 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Header>
+    <Container
+      className="text-center"
+      fluid={false}
+    >
+      <div
+        className="text-center container"
+      >
+        <Row
+          className="align-middle mt-3 mb-4"
+          noGutters={false}
+        >
+          <div
+            className="align-middle mt-3 mb-4 row"
+          >
+            <Col>
+              <div
+                className="col"
+              >
+                <img
+                  alt="Logo"
+                  className="mr-2"
+                  src="icon.png"
+                />
+                <span>
+                  <strong>
+                    To-Do List
+                  </strong>
+                </span>
+              </div>
+            </Col>
+          </div>
+        </Row>
+        <Form
+          id="addForm"
+          inline={false}
+          onSubmit={[Function]}
+        >
+          <form
+            className=""
+            id="addForm"
+            onSubmit={[Function]}
+          >
+            <FormRow
+              className="mb-3"
+            >
+              <div
+                className="mb-3 form-row"
+              >
+                <FormGroup
+                  as={
+                    Object {
+                      "$$typeof": Symbol(react.forward_ref),
+                      "displayName": "Col",
+                      "render": [Function],
+                    }
+                  }
+                  md={
+                    Object {
+                      "offset": 3,
+                      "span": 6,
+                    }
+                  }
+                >
+                  <Col
+                    className="form-group"
+                    md={
+                      Object {
+                        "offset": 3,
+                        "span": 6,
+                      }
+                    }
+                  >
+                    <div
+                      className="form-group col-md-6 offset-md-3"
+                    >
+                      <FormControl
+                        autoComplete="off"
+                        id="textInput"
+                        maxLength="100"
+                        onChange={[Function]}
+                        placeholder="What needs to be done?"
+                        type="text"
+                        value=""
+                      >
+                        <input
+                          autoComplete="off"
+                          className="form-control"
+                          id="textInput"
+                          maxLength="100"
+                          onChange={[Function]}
+                          placeholder="What needs to be done?"
+                          type="text"
+                          value=""
+                        />
+                      </FormControl>
+                    </div>
+                  </Col>
+                </FormGroup>
+                <Col
+                  md={
+                    Object {
+                      "offset": 3,
+                      "span": 6,
+                    }
+                  }
+                >
+                  <div
+                    className="col-md-6 offset-md-3"
+                  >
+                    <Button
+                      active={false}
+                      className="float-right"
+                      disabled={false}
+                      id="addButton"
+                      size="sm"
+                      type="submit"
+                      variant="primary"
+                    >
+                      <button
+                        className="float-right btn btn-primary btn-sm"
+                        disabled={false}
+                        id="addButton"
+                        type="submit"
+                      >
+                        <small>
+                          +
+                           
+                          ADD
+                        </small>
+                      </button>
+                    </Button>
+                  </div>
+                </Col>
+              </div>
+            </FormRow>
+          </form>
+        </Form>
+      </div>
+    </Container>
+  </Header>
+</Provider>
+`;

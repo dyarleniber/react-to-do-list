@@ -42,7 +42,7 @@ const Header = () => {
       </Row>
       <Form id="addForm" onSubmit={handleSubmit}>
         <Form.Row className="mb-3">
-          <Form.Group as={Col} md={{ span: 6, offset: 3 }} controlId="formNewTodo">
+          <Form.Group as={Col} md={{ span: 6, offset: 3 }}>
             <Form.Control
               id="textInput"
               type="text"
@@ -50,7 +50,7 @@ const Header = () => {
               value={input}
               onChange={handleInput}
               maxLength="100"
-              autocomplete="off"
+              autoComplete="off"
             />
           </Form.Group>
           <Col md={{ span: 6, offset: 3 }}>
