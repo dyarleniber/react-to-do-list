@@ -14,7 +14,7 @@
     <img alt="Coverage" src="https://img.shields.io/codecov/c/github/dyarleniber/react-to-do-list">
   </a>
   <a href="https://github.com/dyarleniber/react-to-do-list/blob/master/LICENSE">
-    <img alt="License" src="https://img.shields.io/github/license/dyarleniber/react-to-do-list">
+    <img alt="License" src="https://img.shields.io/github/license/dyarleniber/react-to-do-list?label=license">
   </a>
 </p>
 
