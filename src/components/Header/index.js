@@ -36,7 +36,7 @@ const Header = () => {
         <Col>
           <img className="mr-2" src={logo} alt="Logo" />
           <span>
-            <strong>To-Do List</strong>
+            <strong>React to-do list</strong>
           </span>
         </Col>
       </Row>

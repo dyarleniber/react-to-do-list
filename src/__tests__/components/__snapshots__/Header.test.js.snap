@@ -39,7 +39,7 @@ exports[`Header component should render without crashing 1`] = `
                 />
                 <span>
                   <strong>
-                    To-Do List
+                    React to-do list
                   </strong>
                 </span>
               </div>
