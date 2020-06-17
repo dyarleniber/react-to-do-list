@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-  :white_check_mark: to-do list using JavaScript, React, Redux, Hooks, Bootstrap and Jest.
+  :clipboard: to-do list using JavaScript, React, Redux, Hooks, Bootstrap and Jest.
 </p>
 
 <p align="center">
